@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npx tsc --noEmit && npm test -- --ci",
+    "working_directory": "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_frontend_workspace/task_frontend"
+}

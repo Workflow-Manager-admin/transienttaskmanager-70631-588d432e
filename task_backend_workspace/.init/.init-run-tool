@@ -1,0 +1,4 @@
+{
+    "command": "source venv/bin/activate && python manage.py migrate && python manage.py runserver 0.0.0.0:<port>",
+    "working_directory": "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend"
+}
