@@ -30,3 +30,159 @@ Quit the server with CONTROL-C.
 
 WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
 For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+[25/Jun/2025 06:59:30] "HEAD /docs HTTP/1.1" 301 0
+[25/Jun/2025 06:59:30] "HEAD /docs HTTP/1.1" 301 0
+[25/Jun/2025 06:59:30] "HEAD /docs HTTP/1.1" 301 0
+[25/Jun/2025 06:59:30] "HEAD /docs HTTP/1.1" 301 0
+[25/Jun/2025 06:59:31] "HEAD /docs/ HTTP/1.1" 200 0
+[25/Jun/2025 06:59:31] "HEAD /docs/ HTTP/1.1" 200 0
+[25/Jun/2025 06:59:31] "HEAD /docs/ HTTP/1.1" 200 0
+[25/Jun/2025 06:59:31] "HEAD /docs/ HTTP/1.1" 200 0
+[25/Jun/2025 06:59:31] "GET /docs HTTP/1.1" 301 0
+[25/Jun/2025 06:59:32] "GET /docs/ HTTP/1.1" 200 2206
+[25/Jun/2025 06:59:32] "GET /docs/ HTTP/1.1" 200 2206
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/api/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/core/management/commands/runserver.py", line 134, in inner_run
+    self.check(**check_kwargs)
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/core/management/base.py", line 492, in check
+    all_issues = checks.run_checks(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/core/checks/registry.py", line 89, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/core/checks/urls.py", line 136, in check_custom_error_handlers
+    handler = resolver.resolve_error_handler(status_code)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/urls/resolvers.py", line 732, in resolve_error_handler
+    callback = getattr(self.urlconf_module, "handler%s" % view_type, None)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/urls/resolvers.py", line 711, in urlconf_module
+    return import_module(self.urlconf_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/config/urls.py", line 25, in <module>
+    path('api/', include('api.urls')),
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/venv/lib/python3.12/site-packages/django/urls/conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/api/urls.py", line 7, in <module>
+    path('tasks/', views.tasks_collection, name='tasks-collection'),
+                   ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'api.views' has no attribute 'tasks_collection'
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:01
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:06
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:09
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:13
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:21
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:36
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 25, 2025 - 07:01:42
+Django version 5.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:3001/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+/home/kavia/workspace/code-generation/transienttaskmanager-70631-588d432e/task_backend_workspace/task_backend/config/urls.py changed, reloading.

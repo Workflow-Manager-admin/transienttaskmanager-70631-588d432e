@@ -78,15 +78,6 @@ task_manager = TaskManager()
     responses={200: TaskSerializer(many=True)},
     tags=['Tasks'],
 )
-@api_view(['GET'])
-def list_tasks(request):
-    """
-    Returns a list of all tasks.
-    """
-    return Response(TaskSerializer(task_manager.list_tasks(), many=True).data)
-
-
-# PUBLIC_INTERFACE
 @swagger_auto_schema(
     method='post',
     operation_summary="Create a new task",
@@ -106,21 +97,30 @@ def list_tasks(request):
     },
     tags=['Tasks'],
 )
-@api_view(['POST'])
-def create_task(request):
+@api_view(['GET', 'POST'])
+def tasks_collection(request):
     """
-    Create a new task.
-
-    JSON Body:
-      - title: string
+    GET: Returns a list of all tasks.
+    POST: Create a new task.
+      - JSON Body:
+          - title: string
     """
-    serializer = TaskSerializer(data=request.data)
-    if 'title' not in request.data:
-        return Response({'error': 'Title is required.'}, status=status.HTTP_400_BAD_REQUEST)
-    if serializer.is_valid() or 'title' in request.data:
-        created = task_manager.add_task(title=request.data['title'])
-        return Response(TaskSerializer(created).data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'GET':
+        return Response(TaskSerializer(task_manager.list_tasks(), many=True).data)
+    elif request.method == 'POST':
+        serializer = TaskSerializer(data=request.data)
+        if 'title' not in request.data:
+            return Response({'error': 'Title is required.'}, status=status.HTTP_400_BAD_REQUEST)
+        if serializer.is_valid() or 'title' in request.data:
+            created = task_manager.add_task(title=request.data['title'])
+            return Response(
+                TaskSerializer(created).data,
+                status=status.HTTP_201_CREATED
+            )
+        return Response(
+            serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
 
 
 # PUBLIC_INTERFACE
