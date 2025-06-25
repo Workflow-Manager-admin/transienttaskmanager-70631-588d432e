@@ -4,9 +4,14 @@ import "./App.css";
 const API_URL = "http://localhost:3001/api/tasks/";
 
 const COLORS = {
-  primary: "#1976D2",
-  secondary: "#424242",
-  accent: "#FFC107"
+  primary: "var(--primary)",
+  secondary: "var(--secondary)",
+  accent: "var(--accent)",
+  taskBg: "var(--task-bg)",
+  border: "var(--border)",
+  surface: "var(--surface)",
+  text: "var(--text)",
+  textSecondary: "var(--text-secondary)"
 };
 
 /**
@@ -40,19 +45,19 @@ function TaskInput({ value, onChange, onSubmit, placeholder, disabled, autoFocus
           flex: 1,
           fontSize: 16,
           padding: "12px 14px",
-          border: `1.5px solid ${COLORS.secondary}`,
+          border: `1.5px solid var(--border)`,
           borderRadius: 4,
           outline: "none",
-          background: "#fff",
-          color: "#1a1a1a"
+          background: "var(--input-bg)",
+          color: "var(--text)"
         }}
       />
       <button
         type="submit"
         className="btn"
         style={{
-          background: COLORS.primary,
-          color: "#fff"
+          background: "var(--primary)",
+          color: "var(--text)"
         }}
         disabled={!!disabled || !value.trim()}
       >
@@ -81,14 +86,15 @@ function TaskItem({
     <div
       className="task-row"
       style={{
-        background: "#fff",
-        color: "#212121",
+        background: "var(--task-bg)",
+        color: "var(--text)",
         borderRadius: 4,
         display: "flex",
         alignItems: "center",
         padding: 12,
         marginBottom: 12,
-        boxShadow: "0 1px 6px rgba(60,60,60,0.07)"
+        boxShadow: "var(--shadow)",
+        border: "1px solid var(--border)"
       }}
     >
       <div style={{ flex: 1, display: "flex", alignItems: "center", minWidth: 0 }}>
@@ -102,7 +108,7 @@ function TaskItem({
             outline: "none",
             cursor: "pointer",
             marginRight: 10,
-            color: task.completed ? COLORS.accent : COLORS.secondary,
+            color: task.completed ? "var(--accent)" : "var(--text-secondary)",
             fontSize: 20
           }}
         >
@@ -126,9 +132,11 @@ function TaskItem({
                 flex: 1,
                 fontSize: 16,
                 padding: "7px 8px",
-                border: `1.2px solid ${COLORS.secondary}`,
+                border: "1.2px solid var(--border)",
                 borderRadius: 4,
-                outline: "none"
+                outline: "none",
+                background: "var(--input-bg)",
+                color: "var(--text)"
               }}
               disabled={editDisabled}
             />
@@ -136,8 +144,8 @@ function TaskItem({
               type="submit"
               className="btn"
               style={{
-                background: COLORS.accent,
-                color: "#fff",
+                background: "var(--accent)",
+                color: "#23273c",
                 padding: "6px 14px",
                 marginLeft: 8
               }}
@@ -149,8 +157,8 @@ function TaskItem({
               type="button"
               className="btn"
               style={{
-                background: "#e0e0e0",
-                color: "#212121",
+                background: "var(--surface-2)",
+                color: "var(--text-secondary)",
                 padding: "6px 12px",
                 marginLeft: 4
               }}
@@ -180,9 +188,9 @@ function TaskItem({
             aria-label="Edit"
             className="btn btn-small"
             style={{
-              background: "#fffde7",
-              border: `1px solid ${COLORS.accent}`,
-              color: COLORS.accent,
+              background: "rgba(33, 47, 65, 0.92)",
+              border: "1px solid var(--accent)",
+              color: "var(--accent)",
               padding: "4px 10px",
               borderRadius: 4,
               fontSize: 14,
@@ -197,9 +205,9 @@ function TaskItem({
             aria-label="Delete"
             className="btn btn-small"
             style={{
-              background: "#fff",
-              border: `1px solid ${COLORS.secondary}`,
-              color: COLORS.secondary,
+              background: "var(--surface-2)",
+              border: "1px solid var(--border)",
+              color: "var(--text-secondary)",
               padding: "4px 10px",
               borderRadius: 4,
               fontSize: 14,
@@ -328,21 +336,21 @@ function App() {
   };
 
   return (
-    <div className="app" style={{ background: "#fafbfc", minHeight: "100vh" }}>
+    <div className="app" style={{ background: "var(--dark-bg)", minHeight: "100vh" }}>
       <nav
         className="navbar"
         style={{
-          background: COLORS.primary,
-          borderBottom: `2px solid ${COLORS.accent}`
+          background: "var(--surface)",
+          borderBottom: "2px solid var(--accent)"
         }}
       >
         <div className="container">
           <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-            <div className="logo" style={{ color: "#fff" }}>
-              <span className="logo-symbol" style={{ color: COLORS.accent, fontWeight: 700, fontSize: 24 }}>✔</span>
-              <span style={{ fontWeight: 700, letterSpacing: 1 }}>Minimal Todo</span>
+            <div className="logo" style={{ color: "var(--accent)" }}>
+              <span className="logo-symbol" style={{ color: "var(--accent)", fontWeight: 700, fontSize: 24 }}>✔</span>
+              <span style={{ fontWeight: 700, letterSpacing: 1, color: "var(--text)", opacity: 0.98 }}>Minimal Todo</span>
             </div>
-            <span style={{ color: "#fff", fontWeight: 400, opacity: 0.72 }}>
+            <span style={{ color: "var(--text-secondary)", fontWeight: 400, opacity: 0.82 }}>
               powered by Django backend
             </span>
           </div>
@@ -350,10 +358,10 @@ function App() {
       </nav>
       <main>
         <div className="container" style={{ paddingTop: 108, maxWidth: 500 }}>
-          <h1 className="title" style={{ color: COLORS.primary, fontSize: 36, textAlign: "center", fontWeight: 700 }}>
+          <h1 className="title" style={{ color: "var(--text)", fontSize: 36, textAlign: "center", fontWeight: 700 }}>
             My Tasks
           </h1>
-          <p className="description" style={{ textAlign: "center", color: COLORS.secondary, marginBottom: 32 }}>
+          <p className="description" style={{ textAlign: "center", color: "var(--text-secondary)", marginBottom: 32 }}>
             Add, edit, complete, and delete your daily todos. Data is in-memory only (not saved permanently).
           </p>
 
@@ -367,13 +375,13 @@ function App() {
           />
 
           {loading ? (
-            <div style={{ textAlign: "center", color: COLORS.primary, padding: 12 }}>
+            <div style={{ textAlign: "center", color: "var(--primary)", padding: 12 }}>
               Loading...
             </div>
           ) : (
             <>
               {tasks.length === 0 ? (
-                <div style={{ textAlign: "center", color: COLORS.secondary, fontWeight: 500, padding: 24 }}>
+                <div style={{ textAlign: "center", color: "var(--text-secondary)", fontWeight: 500, padding: 24 }}>
                   No tasks yet. Add your first one!
                 </div>
               ) : (
@@ -398,16 +406,16 @@ function App() {
           )}
           {error && (
             <div style={{
-              background: "#fff3cd", color: "#7c5d00",
+              background: "rgba(56,48,14,0.18)", color: "var(--accent)",
               padding: "10px 16px", borderRadius: 4, marginTop: 18,
-              fontSize: 15, border: "1px solid #ffee93"
+              fontSize: 15, border: "1px solid var(--accent)"
             }}>{error}</div>
           )}
         </div>
       </main>
       <footer style={{
         textAlign: "center",
-        color: "#a6a6a6",
+        color: "var(--text-secondary)",
         fontWeight: 400,
         padding: 28,
         fontSize: 15
